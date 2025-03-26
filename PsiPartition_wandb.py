@@ -13,14 +13,14 @@ from Bio import AlignIO
 from tqdm import tqdm
 
 import wandb
-from utils import (aa_str, default_iqtree, dna_str, extract_stat,
+from utils import (aa_str, default_iqtree, dna_str, bin_str, extract_stat,
                    remove_caches, write_part_file)
 
 
 def calculate_sorting(file_path: str, format, datatype, w) -> np.ndarray:
     msa = [str(r.seq) for r in AlignIO.read(file_path, format)]
     n_seqs, n_sites = len(msa), len(msa[0])
-    alphabet = aa_str if datatype == 'aa' else dna_str
+    alphabet = aa_str if datatype == 'aa' else bin_str if datatype == 'bin' else dna_str
 
     site_partitions = []
     for j, s in enumerate(zip(*msa)):
@@ -85,6 +85,11 @@ def opt_func(args) -> float:
             'A': wandb.config.A, 'C': wandb.config.C, 'D': wandb.config.D, 'E': wandb.config.E, 'F': wandb.config.F, 'G': wandb.config.G, 'H': wandb.config.H, 'I': wandb.config.I, 'K': wandb.config.K, 'L': wandb.config.L, 'M': wandb.config.M, 'N': wandb.config.N, 'P': wandb.config.P, 'Q': wandb.config.Q, 'R': wandb.config.R, 'S': wandb.config.S, 'T': wandb.config.T, 'V': wandb.config.V, 'W': wandb.config.W, 'Y': wandb.config.Y, '-': wandb.config.UNK, }
         s = sum(w.values())
         w = {k: v/s for k, v in w.items()}
+    elif alphabet == "bin":
+        w = {
+            '0': wandb.config.ZERO, '1': wandb.config.ONE, '-': wandb.config.UNK, }
+        s = sum(w.values())
+        w = {k: v/s for k, v in w.items()}
     else:
         w = None
 
@@ -97,7 +102,7 @@ def opt_func(args) -> float:
             f'{k},{stat["BIC"]},{stat["AICc"]},{stat["log-likelihood"]},{stat["num_params"]},')
         if w is not None:
             f.write(
-                ','.join([f'{w[k]}' for k in (dna_str if alphabet == 'dna' else aa_str)]))
+                ','.join([f'{w[k]}' for k in (dna_str if alphabet == 'dna' else aa_str if alphabet == "aa" else bin_str)]))
         f.write('\n')
 
 
@@ -106,7 +111,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--msa', type=str, default='data/DNA/empirical/Morpho.fasta', help='MSA file')
     parser.add_argument('--format', type=str, default='fasta', help='fasta or phylip')
-    parser.add_argument('--alphabet', type=str, default='dna', help='dna or aa')
+    parser.add_argument('--alphabet', type=str, default='dna', help='dna, aa, or bin')
     parser.add_argument('--max_partitions', type=int, default=30)
     parser.add_argument('--n_iter', type=int, default=1000)
     args = parser.parse_args()
@@ -144,6 +149,12 @@ if __name__ == '__main__':
                 'W': {'min': 0, 'max': 1, 'distribution': 'uniform'},
                 'Y': {'min': 0, 'max': 1, 'distribution': 'uniform'},
                 'V': {'min': 0, 'max': 1, 'distribution': 'uniform'},
+                'UNK': {'min': 0, 'max': 1, 'distribution': 'uniform'},
+            }
+        elif args.alphabet == 'bin':
+            params = {
+                'ZERO': {'min': 0, 'max': 1, 'distribution': 'uniform'},
+                'ONE': {'min': 0, 'max': 1, 'distribution': 'uniform'},
                 'UNK': {'min': 0, 'max': 1, 'distribution': 'uniform'},
             }
         else:

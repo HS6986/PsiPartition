@@ -7,6 +7,7 @@ from scipy.optimize import linear_sum_assignment
 
 aa_str = 'ARNDCQEGHILKMFPSTWYV-'
 dna_str = 'ACGT-'
+bin_str = "01-"
 
 
 def extract_stat(p):
