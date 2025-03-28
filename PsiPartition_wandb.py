@@ -2,6 +2,7 @@
 A script to evaluate the sorting partitioning method.
 @Author: Shijie Xu
 @Date: 2024-01-02
+Modified by Hiroaki Sato
 """
 import argparse
 from collections import defaultdict
@@ -48,7 +49,7 @@ def calculate_sorting(file_path: str, format, datatype, w) -> np.ndarray:
     return corr, sorting
 
 
-def PsiPartition(msa: str, format: str, alphabet: str, k: int, w: dict = None):
+def PsiPartition(msa: str, format: str, alphabet: str, asc: str, k: int, w: dict = None):
     _, sorting = calculate_sorting(msa, format, alphabet, w)
     log_file = open(Path(msa).with_suffix('.log'), 'w')
     indices = np.digitize(sorting, np.linspace(
@@ -58,10 +59,17 @@ def PsiPartition(msa: str, format: str, alphabet: str, k: int, w: dict = None):
 
     with open(Path(msa).with_suffix('.log'), 'w') as log_file:
         remove_caches(Path(msa))
-        default_iqtree([
-            '-s', msa, '-pre', Path(msa).with_suffix(''),
-            '-spp', Path(msa).with_suffix('.parts'), '-nt', '4',],
-            log_file)
+        if asc == "no":
+            default_iqtree([
+                '-s', msa, '-pre', Path(msa).with_suffix(''),
+                '-spp', Path(msa).with_suffix('.parts'), '-mrate', 'E,I,G,I+G,R,I+R', '-nt', '4',],
+                log_file)
+        elif asc == "yes":
+            default_iqtree([
+                '-s', msa, '-pre', Path(msa).with_suffix(''),
+                '-spp', Path(msa).with_suffix('.parts'), '-MFP+ASC', '-nt', '4',],
+                log_file)
+
     stat = extract_stat(Path(msa).with_suffix('.iqtree'))
     return stat
 
@@ -71,6 +79,7 @@ def opt_func(args) -> float:
     msa = args.msa
     format = args.format
     alphabet = args.alphabet
+    asc = args.asc
     k = wandb.config.k
 
     if alphabet == 'dna':
@@ -93,7 +102,7 @@ def opt_func(args) -> float:
     else:
         w = None
 
-    stat = PsiPartition(msa, format, alphabet, k, w)
+    stat = PsiPartition(msa, format, alphabet, asc, k, w)
 
     wandb.log(stat)
     # write results to file
@@ -112,6 +121,7 @@ if __name__ == '__main__':
     parser.add_argument('--msa', type=str, default='data/DNA/empirical/Morpho.fasta', help='MSA file')
     parser.add_argument('--format', type=str, default='fasta', help='fasta or phylip')
     parser.add_argument('--alphabet', type=str, default='dna', help='dna, aa, or bin')
+    parser.add_argument('--asc', type=str, default='no', help='no or yes')
     parser.add_argument('--max_partitions', type=int, default=30)
     parser.add_argument('--n_iter', type=int, default=1000)
     args = parser.parse_args()

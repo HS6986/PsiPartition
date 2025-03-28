@@ -1,0 +1,240 @@
+IQ-TREE 1.6.12 built Aug 15 2019
+
+Partition file name: GeneContent.parts
+Input file name: GeneContent.fas
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 472956
+
+REFERENCES
+----------
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+To cite IQ-TREE please use:
+
+Lam-Tung Nguyen, Heiko A. Schmidt, Arndt von Haeseler, and Bui Quang Minh
+(2015) IQ-TREE: A fast and effective stochastic algorithm for estimating
+maximum likelihood phylogenies. Mol Biol Evol, 32:268-274.
+https://doi.org/10.1093/molbev/msu300
+
+Since you used partition models please also cite:
+
+Olga Chernomor, Arndt von Haeseler, and Bui Quang Minh (2016)
+Terrace aware data structure for phylogenomic inference from
+supermatrices. Syst Biol, 65:997-1008.
+https://doi.org/10.1093/sysbio/syw037
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 28 taxa with 29 partitions and 15849 total sites (0% missing data)
+
+  ID  Name    Type	Seq	Site	Unique	Infor	Invar	Const
+   1  part1   BIN	28	844	25	0	323	323
+   2  part2   BIN	28	1844	1012	1844	0	0
+   3  part3   BIN	28	1372	1031	1372	0	0
+   4  part4   BIN	28	1159	847	1159	0	0
+   5  part5   BIN	28	1067	700	1067	0	0
+   6  part6   BIN	28	954	588	954	0	0
+   7  part7   BIN	28	706	328	706	0	0
+   8  part8   BIN	28	508	214	508	0	0
+   9  part9   BIN	28	465	186	465	0	0
+  10  part10  BIN	28	328	122	328	0	0
+  11  part11  BIN	28	1448	70	1448	0	0
+  12  part12  BIN	28	565	38	565	0	0
+  13  part13  BIN	28	92	12	92	0	0
+  14  part14  BIN	28	704	29	704	0	0
+  15  part15  BIN	28	488	21	488	0	0
+  16  part16  BIN	28	214	62	214	0	0
+  17  part17  BIN	28	523	71	523	0	0
+  18  part18  BIN	28	330	70	330	0	0
+  19  part19  BIN	28	237	82	237	0	0
+  20  part20  BIN	28	303	62	303	0	0
+  21  part21  BIN	28	250	53	250	0	0
+  22  part22  BIN	28	175	59	175	0	0
+  23  part23  BIN	28	93	32	93	0	0
+  24  part24  BIN	28	360	29	360	0	0
+  25  part25  BIN	28	172	28	172	0	0
+  26  part26  BIN	28	139	17	139	0	0
+  27  part27  BIN	28	471	14	471	0	0
+  28  part28  BIN	28	15	2	15	0	0
+  29  part29  BIN	28	23	1	23	0	0
+
+Column meanings:
+  Unique: Number of unique site patterns
+  Infor:  Number of parsimony-informative sites
+  Invar:  Number of invariant sites
+  Const:  Number of constant sites (can be subset of invariant sites)
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: GTR2+FO:part1,GTR2+FO:part2,GTR2+FO:part3,GTR2+FO:part4,GTR2+FO:part5,GTR2+FO:part6,GTR2+FO:part7,GTR2+FO:part8,GTR2+FO:part9,GTR2+FO:part10,GTR2+FO:part11,GTR2+FO:part12,GTR2+FO:part13,GTR2+FO:part14,GTR2+FO:part15,GTR2+FO:part16,GTR2+FO:part17,GTR2+FO:part18,GTR2+FO:part19,GTR2+FO:part20,GTR2+FO:part21,GTR2+FO:part22,GTR2+FO:part23,GTR2+FO:part24,GTR2+FO:part25,GTR2+FO:part26,GTR2+FO:part27,GTR2+FO:part28,GTR2+FO:part29
+
+List of best-fit models per partition:
+
+  ID  Model             LogL          AIC      w-AIC      AICc     w-AICc       BIC      w-BIC
+   1  GTR2+FO          -2463.8297   4931.6593 + 0.0000   4931.6736 + 0.0000   4941.1356 + 0.0000
+   2  GTR2+FO         -17734.9158  35473.8315 + 0.0000  35473.8380 + 0.0000  35484.8709 + 0.0000
+   3  GTR2+FO         -16826.1610  33656.3220 + 0.0000  33656.3308 + 0.0000  33666.7700 + 0.0000
+   4  GTR2+FO         -14016.3496  28036.6992 + 0.0000  28036.7096 + 0.0000  28046.8098 + 0.0000
+   5  GTR2+FO         -12224.1570  24452.3141 + 0.0000  24452.3253 + 0.0000  24462.2593 + 0.0000
+   6  GTR2+FO         -10754.5182  21513.0363 + 0.0000  21513.0489 + 0.0000  21522.7576 + 0.0000
+   7  GTR2+FO          -7383.7958  14771.5916 + 0.0000  14771.6087 + 0.0000  14780.7108 + 0.0000
+   8  GTR2+FO          -5269.7759  10543.5517 + 0.0000  10543.5755 + 0.0000  10552.0127 + 0.0000
+   9  GTR2+FO          -4626.5559   9257.1119 + 0.0000   9257.1379 + 0.0000   9265.3960 + 0.0000
+  10  GTR2+FO          -3258.0813   6520.1626 + 0.0000   6520.1995 + 0.0000   6527.7486 + 0.0000
+  11  GTR2+FO          -7670.3292  15344.6584 + 0.0000  15344.6667 + 0.0000  15355.2143 + 0.0000
+  12  GTR2+FO          -3667.6478   7339.2955 + 0.0000   7339.3169 + 0.0000   7347.9692 + 0.0000
+  13  GTR2+FO           -792.7140   1589.4280 + 0.0000   1589.5629 + 0.0000   1594.4716 + 0.0000
+  14  GTR2+FO          -4246.6824   8497.3649 + 0.0000   8497.3820 + 0.0000   8506.4784 + 0.0000
+  15  GTR2+FO          -3125.8104   6255.6208 + 0.0000   6255.6456 + 0.0000   6264.0015 + 0.0000
+  16  GTR2+FO          -2046.7069   4097.4138 + 0.0000   4097.4707 + 0.0000   4104.1458 + 0.0000
+  17  GTR2+FO          -4375.0174   8754.0348 + 0.0000   8754.0579 + 0.0000   8762.5540 + 0.0000
+  18  GTR2+FO          -2879.0724   5762.1448 + 0.0000   5762.1815 + 0.0000   5769.7429 + 0.0000
+  19  GTR2+FO          -2424.8145   4853.6290 + 0.0000   4853.6803 + 0.0000   4860.5651 + 0.0000
+  20  GTR2+FO          -2727.2635   5458.5271 + 0.0000   5458.5671 + 0.0000   5465.9545 + 0.0000
+  21  GTR2+FO          -2357.8974   4719.7948 + 0.0000   4719.8434 + 0.0000   4726.8377 + 0.0000
+  22  GTR2+FO          -1853.8567   3711.7135 + 0.0000   3711.7833 + 0.0000   3718.0431 + 0.0000
+  23  GTR2+FO           -971.6256   1947.2513 + 0.0000   1947.3846 + 0.0000   1952.3165 + 0.0000
+  24  GTR2+FO          -2567.8304   5139.6607 + 0.0000   5139.6943 + 0.0000   5147.4329 + 0.0000
+  25  GTR2+FO          -1460.9469   2925.8938 + 0.0000   2925.9648 + 0.0000   2932.1888 + 0.0000
+  26  GTR2+FO          -1180.1472   2364.2944 + 0.0000   2364.3826 + 0.0000   2370.1634 + 0.0000
+  27  GTR2+FO          -3068.3068   6140.6136 + 0.0000   6140.6392 + 0.0000   6148.9233 + 0.0000
+  28  GTR2+FO           -120.8864    245.7728 + 0.0000    246.7728 + 0.0000    247.1889 + 0.0000
+  29  GTR2+FO           -177.6559    359.3118 + 0.0000    359.9118 + 0.0000    361.5828 + 0.0000
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Edge-linked-proportional partition model but separate models between partitions
+
+  ID  Model           Speed  Parameters
+   1  GTR2+FO        1.0025  GTR2
+   2  GTR2+FO        1.2603  GTR2
+   3  GTR2+FO        1.2603  GTR2
+   4  GTR2+FO        1.2603  GTR2
+   5  GTR2+FO        1.1717  GTR2
+   6  GTR2+FO        1.2481  GTR2
+   7  GTR2+FO        1.0023  GTR2
+   8  GTR2+FO        1.0018  GTR2
+   9  GTR2+FO        0.8581  GTR2
+  10  GTR2+FO        0.9986  GTR2
+  11  GTR2+FO        0.4826  GTR2
+  12  GTR2+FO        0.6565  GTR2
+  13  GTR2+FO        0.7541  GTR2
+  14  GTR2+FO        0.4826  GTR2
+  15  GTR2+FO        0.4826  GTR2
+  16  GTR2+FO        0.6871  GTR2
+  17  GTR2+FO        0.6465  GTR2
+  18  GTR2+FO        0.8685  GTR2
+  19  GTR2+FO        1.2225  GTR2
+  20  GTR2+FO        1.2603  GTR2
+  21  GTR2+FO        1.2603  GTR2
+  22  GTR2+FO        1.2603  GTR2
+  23  GTR2+FO        1.2603  GTR2
+  24  GTR2+FO        1.0385  GTR2
+  25  GTR2+FO        1.2603  GTR2
+  26  GTR2+FO        1.2603  GTR2
+  27  GTR2+FO        1.0213  GTR2
+  28  GTR2+FO        1.2603  GTR2
+  29  GTR2+FO        1.2603  GTR2
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -138210.8656 (s.e. 465.7677)
+Unconstrained log-likelihood (without tree): -64761.4805
+Number of free parameters (#branches + #model parameters): 110
+Akaike information criterion (AIC) score: 276641.7313
+Corrected Akaike information criterion (AICc) score: 276643.2829
+Bayesian information criterion (BIC) score: 277485.5260
+
+Total tree length (sum of branch lengths): 15.3118
+Sum of internal branch lengths: 13.2891 (86.7904% of tree length)
+
+WARNING: 1 near-zero internal branches (<0.0001) should be treated with caution
+         Such branches are denoted by '**' in the figure below
+
+WARNING: 1 too long branches (>9.8000) should be treated with caution!
+NOTE: Tree is UNROOTED although outgroup taxon 'Acropora' is drawn at root
+
++--Acropora
+|
+|         +**Amphimedon
+|     +---|
+|     |   |              +--Capsaspora
+|     |   |           +--|
+|     |   |           |  +--Salpingoeca
+|     |   |        +--|
+|     |   |        |  |                                                        +--H0_Polyplacotoma_mediterranea
+|     |   |        |  |                                                     +--|
+|     |   |        |  |                                                     |  |  +--H17
+|     |   |        |  |                                                     |  +--|
+|     |   |        |  |                                                     |     |  +--H1_Trichoplax_adhaerens_V2
+|     |   |        |  |                                                     |     +--|
+|     |   |        |  |                                                     |        +--H2
+|     |   |        |  |                                                  +--|
+|     |   |        |  |                                                  |  |           +--H13_Hoilungia_hongkongensis
+|     |   |        |  |                                                  |  |        +--|
+|     |   |        |  |                                                  |  |        |  +--H4
+|     |   |        |  |                                                  |  |     +--|
+|     |   |        |  |                                                  |  |     |  |  +--H15
+|     |   |        |  |                                                  |  |     |  +--|
+|     |   |        |  |                                                  |  |     |     +--H25
+|     |   |        |  |                                                  |  |  +--|
+|     |   |        |  |                                                  |  |  |  +--H24
+|     |   |        |  |                                                  |  +--|
+|     |   |        |  |                                                  |     +--H19
+|     |   |        |  |                                               +**|
+|     |   |        |  |                                               |  |  +--H11
+|     |   |        |  |                                               |  +--|
+|     |   |        |  |                                               |     +--H6
+|     |   |        |  +-----------------------------------------------|
+|     |   |        |                                                  +--H23_Cladtertia_collaboinventa
+|     |   |     +--|
+|     |   |     |  +--Monosiga
+|     |   |  +--|
+|     |   |  |  |  +--Mnemiopsis
+|     |   |  |  +--|
+|     |   |  |     +**Pleurobrachia
+|     |   +--|
+|     |      +--Oscarella
+|  +--|
+|  |  +--Hydra
++--|
+|  +--Clytia
+|
+|     +--Branchiostoma
+|  +--|
+|  |  |  +--Capitella
+|  |  +--|
+|  |     |  +--Ciona
+|  |     +--|
+|  |        +--Drosophila
++--|
+   +--Nematostella
+
+Tree in newick format:
+
+(Acropora:0.0736236510,(((Amphimedon:0.0000022044,(((((Capsaspora:0.2294475726,Salpingoeca:0.0616925198):0.0430547863,((((H0_Polyplacotoma_mediterranea:0.1353083769,(H17:0.0055596619,(H1_Trichoplax_adhaerens_V2:0.0235104041,H2:0.0052064405):0.0050865646):0.0070329015):0.0437573910,((((H13_Hoilungia_hongkongensis:0.0226301596,H4:0.0126400934):0.0032859072,(H15:0.0044993082,H25:0.0042710848):0.0015311737):0.0126067900,H24:0.0257830940):0.0036269805,H19:0.0112550722):0.0162701302):0.0025162565,(H11:0.1142637364,H6:0.0626321962):0.0168459305):0.0000019542,H23_Cladtertia_collaboinventa:0.0098453550):10.0000000000):0.0131950175,Monosiga:0.0008434890):0.2190661360,(Mnemiopsis:0.2048058034,Pleurobrachia:0.0000022507):0.3337855632):0.3444893921,Oscarella:0.2005429876):0.5482907917):0.8592252592,Hydra:0.0004317736):0.0966040998,Clytia:0.0834173404):0.2360952983,((Branchiostoma:0.0510847333,(Capitella:0.1087386545,(Ciona:0.0889847613,Drosophila:0.4057542157):0.1634152701):0.0461707404):0.2549565158,Nematostella:0.0758398769):0.0182301813);
+
+TIME STAMP
+----------
+
+Date and time: Thu Mar 27 15:07:45 2025
+Total CPU time used: 516.067 seconds (0h:8m:36s)
+Total wall-clock time used: 130.67 seconds (0h:2m:10s)
+
