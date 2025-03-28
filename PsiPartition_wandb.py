@@ -67,7 +67,7 @@ def PsiPartition(msa: str, format: str, alphabet: str, asc: str, k: int, w: dict
         elif asc == "yes":
             default_iqtree([
                 '-s', msa, '-pre', Path(msa).with_suffix(''),
-                '-spp', Path(msa).with_suffix('.parts'), '-MFP+ASC', '-nt', '4',],
+                '-spp', Path(msa).with_suffix('.parts'), '-m MFP+ASC', '-nt', '4',],
                 log_file)
 
     stat = extract_stat(Path(msa).with_suffix('.iqtree'))

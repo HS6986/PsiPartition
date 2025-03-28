@@ -1,0 +1,1 @@
+python PsiPartition_wandb.py --msa microsynteny_phylogeny_22_Nov_2022_maxgaps_60_anchors_2.phy --format phylip --alphabet bin --asc yes --max_partitions 17703 --n_iter 30
